@@ -3,6 +3,9 @@ public class Fraction {
     private int numerateur;
     private int denominateur;
 
+    public static final Fraction ZERO = new Fraction(0, 1);
+    public static final Fraction UN = new Fraction(1, 1);
+
     // Constructeur avec numerateur et denominateur
 
     public Fraction(int numerateur, int denominateur) {
