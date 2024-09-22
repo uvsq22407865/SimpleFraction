@@ -62,4 +62,12 @@ public class Fraction {
 
     }
 
+    public int comparerfrac(Fraction autreFraction) {
+        // Comparaison des produits croisés pour déterminer l'ordre naturel
+        int thisCrossProduct = this.numerateur * autreFraction.denominateur;
+        int autreCrossProduct = this.denominateur * autreFraction.numerateur;
+
+        return Integer.compare(thisCrossProduct, autreCrossProduct);
+    }
+
 }
