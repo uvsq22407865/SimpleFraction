@@ -1,73 +1,79 @@
-public class Fraction {
-
+public class Fraction extends Number implements Comparable<Fraction> {
     private int numerateur;
     private int denominateur;
 
-    public static final Fraction ZERO = new Fraction(0, 1);
-    public static final Fraction UN = new Fraction(1, 1);
-
-    // Constructeur avec numerateur et denominateur
-
+    // Constructeur
     public Fraction(int numerateur, int denominateur) {
+        if (denominateur == 0) {
+            throw new IllegalArgumentException("Le dénominateur ne peut pas être zéro.");
+        }
         this.numerateur = numerateur;
         this.denominateur = denominateur;
     }
 
-    // Constructeur avec juste le numerateur
     public Fraction(int numerateur) {
-        this.numerateur = numerateur;
-        this.denominateur = 1; // Denominateur par defaut
+        this(numerateur, 1);
     }
 
-    // Constructeur sans argument
     public Fraction() {
-        this.numerateur = 0; // Numerateur par defaut
-        this.denominateur = 1; // Denominateur par defaut
-    }
-
-    public int getNumerateur() {
-        return numerateur; // Retourne le numerateur
-    }
-
-    public int getDenominateur() {
-        return denominateur;
-    }
-
-    public double doubleValue() {
-        return (double) numerateur / denominateur;
-    }
-
-    public Fraction add(Fraction frac) {
-        int newnumerateur = this.numerateur * frac.denominateur + this.denominateur * frac.numerateur;
-        int newdenominateur = this.denominateur * frac.denominateur;
-        return new Fraction(newnumerateur, newdenominateur);
+        this(0, 1);
     }
 
     @Override
-
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
-        Fraction fract = (Fraction) obj;
+        Fraction autreFraction = (Fraction) obj;
 
-        // Comparaison des produits croisés pour vérifier l'égalité des fractions
-        return this.numerateur * fract.denominateur == this.denominateur * fract.numerateur;
+        // Comparaison des produits croises
+        return this.numerateur * autreFraction.denominateur == this.denominateur * autreFraction.numerateur;
     }
 
     @Override
     public String toString() {
-        return "je suis une fraction.";
-
+        return numerateur + "/" + denominateur;
     }
 
     public int comparerfrac(Fraction autreFraction) {
-        // Comparaison des produits croisés pour déterminer l'ordre naturel
+        // Comparaison
         int thisCrossProduct = this.numerateur * autreFraction.denominateur;
         int autreCrossProduct = this.denominateur * autreFraction.numerateur;
 
         return Integer.compare(thisCrossProduct, autreCrossProduct);
     }
 
+    public Fraction add(Fraction autreFraction) {
+        int newNumerator = this.numerateur * autreFraction.denominateur + autreFraction.numerateur * this.denominateur;
+        int newDenominator = this.denominateur * autreFraction.denominateur;
+        return new Fraction(newNumerator, newDenominator);
+    }
+
+    // Methode pour comparer les fractions selon l'ordre naturel
+    @Override
+    public int compareTo(Fraction autreFraction) {
+        return comparerfrac(autreFraction);
+    }
+
+    // Méthodes de la classe Number
+    @Override
+    public int intValue() {
+        return (int) doubleValue(); // Conversion en entier
+    }
+
+    @Override
+    public long longValue() {
+        return (long) doubleValue(); // Conversion en long
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) doubleValue(); // Conversion en float
+    }
+
+    @Override
+    public double doubleValue() {
+        return (double) numerateur / denominateur; // Conversion en double
+    }
 }

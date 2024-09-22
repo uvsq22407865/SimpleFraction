@@ -19,7 +19,12 @@ public class Main {
         Fraction resultat = fraction1.add(fraction2);
         assert resultat.toString().equals("120/16") : "Test échoué pour l'addition de 8/16 et 7/1";
 
-        assert fraction2.comparerfrac(fraction1) < 0 : "Test échoué pour la comparaison de 1/2 et 3/4";
+        assert fraction2.comparerfrac(fraction1) < 0 : "Test échoué pour la comparaison de 8/16 et 7/1";
+
+        Number aNumber = java.math.BigDecimal.ONE;
+        Number anotherNumber = new Fraction(1, 2);
+        assert java.lang.Math.abs(aNumber.doubleValue() + anotherNumber.doubleValue() - 1.5) < 1E-8
+                : "Test échoué pour la somme de BigDecimal.ONE et Fraction(1, 2)";
 
         System.out.println("Tous les tests sont passes !");
     }
