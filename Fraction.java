@@ -37,6 +37,12 @@ public class Fraction {
         return (double) numerateur / denominateur;
     }
 
+    public Fraction add(Fraction frac) {
+        int newnumerateur = this.numerateur * frac.denominateur + this.denominateur * frac.numerateur;
+        int newdenominateur = this.denominateur * frac.denominateur;
+        return new Fraction(newnumerateur, newdenominateur);
+    }
+
     @Override
     public String toString() {
         return "je suis une fraction.";
