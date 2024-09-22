@@ -25,6 +25,14 @@ public class Fraction {
         this.denominateur = 1; // Denominateur par defaut
     }
 
+    public int getNumerateur() {
+        return numerateur; // Retourne le numerateur
+    }
+
+    public int getDenominateur() {
+        return denominateur;
+    }
+
     @Override
     public String toString() {
         return "je suis une fraction.";
