@@ -44,6 +44,19 @@ public class Fraction {
     }
 
     @Override
+
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+        Fraction fract = (Fraction) obj;
+
+        // Comparaison des produits croisés pour vérifier l'égalité des fractions
+        return this.numerateur * fract.denominateur == this.denominateur * fract.numerateur;
+    }
+
+    @Override
     public String toString() {
         return "je suis une fraction.";
 

@@ -2,6 +2,8 @@ public class Main {
     public static void main(String[] args) {
 
         Fraction fraction1 = new Fraction(8, 16);
+        Fraction fraction4 = new Fraction(5, 7);
+        assert fraction1.equals(fraction4) : "Test échoué pour l'égalité de 8/16 et 5/7";
 
         assert fraction1.toString().equals("8/16") : "Test echoue pour fraction1";
         assert fraction1.doubleValue() == 0.5 : "Test échoué pour fraction1";
