@@ -33,6 +33,10 @@ public class Fraction {
         return denominateur;
     }
 
+    public double doubleValue() {
+        return (double) numerateur / denominateur;
+    }
+
     @Override
     public String toString() {
         return "je suis une fraction.";
