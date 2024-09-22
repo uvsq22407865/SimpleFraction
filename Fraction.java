@@ -1,5 +1,7 @@
 public class Fraction {
-    // vide pour le moment
+
+    private int numerateur;
+    private int denominateur;
 
     @Override
     public String toString() {

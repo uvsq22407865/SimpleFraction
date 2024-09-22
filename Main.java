@@ -3,6 +3,7 @@ public class Main {
 
         Fraction fraction = new Fraction();
         System.out.println(fraction);
+
         System.out.println("le projet compile et s'execute");
     }
 
